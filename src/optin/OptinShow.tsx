@@ -2,9 +2,7 @@ import { Grid, Button, Divider, Dialog, DialogActions, DialogContent, DialogCont
 import React, { useMemo } from 'react';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { TopToolbar, EditButton, Create, SimpleForm, TextInput, Show, Toolbar, useNotify, } from 'react-admin';
-import { Post } from '../utils/apiCalls';
-import { apiURL } from '../dataProvider/rest';
-import { redirect } from 'react-router';
+
 
 // Actions
 const AssetShowActions = (props: any) => {
@@ -109,42 +107,43 @@ const OptinShow = (props: any) => {
                                 />
                             </Grid>
                         </Grid>
+                        <Grid item xs={6}>
+                            <Grid container spacing={2}>
+                                <Grid item xs={6}>
+                                    <TextInput
+                                        source="manager_address"
+                                        resource="assets"
+                                        fullWidth
+                                        disabled={true}
+                                    />
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <TextInput
+                                        source="reserve_address"
+                                        resource="assets"
+                                        fullWidth
+                                        disabled={true}
+                                    />
+                                </Grid>
+                            </Grid>
 
-                        <Grid container spacing={2}>
-                            <Grid item xs={6}>
-                                <TextInput
-                                    source="manager_address"
-                                    resource="assets"
-                                    fullWidth
-                                    disabled={true}
-                                />
-                            </Grid>
-                            <Grid item xs={6}>
-                                <TextInput
-                                    source="reserve_address"
-                                    resource="assets"
-                                    fullWidth
-                                    disabled={true}
-                                />
-                            </Grid>
-                        </Grid>
-
-                        <Grid container spacing={2}>
-                            <Grid item xs={6}>
-                                <TextInput
-                                    source="freeze_address"
-                                    resource="assets"
-                                    fullWidth
-                                    disabled={true}
-                                />
-                            </Grid>
-                            <Grid item xs={6}>
-                                <TextInput
-                                    source="clawback_address"
-                                    resource="assets"
-                                    fullWidth
-                                    disabled={true}
-                                />
+                            <Grid container spacing={2}>
+                                <Grid item xs={6}>
+                                    <TextInput
+                                        source="freeze_address"
+                                        resource="assets"
+                                        fullWidth
+                                        disabled={true}
+                                    />
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <TextInput
+                                        source="clawback_address"
+                                        resource="assets"
+                                        fullWidth
+                                        disabled={true}
+                                    />
+                                </Grid>
                             </Grid>
                         </Grid>
                     </Grid>

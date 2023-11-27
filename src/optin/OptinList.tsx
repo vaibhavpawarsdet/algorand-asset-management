@@ -1,6 +1,13 @@
-import { Datagrid, Link, List, TextField, useListContext, useRecordContext } from 'react-admin';
+import { Datagrid, Filter, Link, List, SearchInput, TextField, TextInput, useListContext, useRecordContext } from 'react-admin';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-
+const ListFilters = (props: any) => {
+    return (
+        <Filter {...props} >
+            <SearchInput source="q" alwaysOn />
+            <TextInput source="asset_id" />
+        </Filter>
+    );
+};
 
 const OptinList = (props: any) => {
 
@@ -13,10 +20,12 @@ const OptinList = (props: any) => {
         </Link>
     };
     return (
-        <List {...props} >
+        <List {...props} filters={<ListFilters />}>
             <Datagrid>
+                <TextField source="asset_name" label="Asset Name" />
                 <TextField source="asset_id" label="Asset Id" />
                 <TextField source="transaction" label="Transaction Id" />
+
                 <ShowLink label="VIEW" sortable={false} />
             </Datagrid>
         </List>

@@ -1,7 +1,7 @@
 import React, { Fragment, useCallback, useMemo } from 'react'
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import AssetIcon from '@mui/icons-material/Business';
-import { List, Datagrid, TextField, Link, useListContext, useRecordContext, useListController, TabbedShowLayout, Show, SimpleShowLayout, ReferenceManyField, Button, Toolbar, TopToolbar, CreateButton, Count } from 'react-admin';
+import { List, Datagrid, TextField, Link, useListContext, useRecordContext, useListController, TabbedShowLayout, Show, SimpleShowLayout, ReferenceManyField, Button, Toolbar, TopToolbar, CreateButton, Count, Filter, SearchInput, TextInput } from 'react-admin';
 import { Tabs, Tab } from '@mui/material';
 
 
@@ -48,7 +48,7 @@ const AssetList = (props: any) => {
     <div>
 
       <List {...props} >
-        <Tabs
+        {/* <Tabs
           variant="fullWidth"
           centered
           // value={filterValues.status}
@@ -70,15 +70,21 @@ const AssetList = (props: any) => {
               value={choice.id}
             />
           ))}
-        </Tabs>
-        <Datagrid>
+        </Tabs> */}
+        <Datagrid sx={{
+          '& .column-undefined': { textAlign: 'center' },
+          '& .column-company_name': {
+            whiteSpace: 'normal',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+          }
+        }}>
           <TextField source="asset_name" label="Asset Name" />
-          {/* : null} */}
           <TextField source="asset_id" label="Asset Id" />
-          <TextField source="asset_total" label="Asset Total" />
+          {/* <TextField source="asset_total" label="Asset Total" /> */}
+          <TextField source="manager" label="Manager Address" />
           <TextField source="transaction" label="Transaction Id" />
-          {/* <TextField source="manager_addr" label="Manager Address" />
-        <TextField source="reserve_addr" label="Reserve Address" />
+          {/* <TextField source="reserve_addr" label="Reserve Address" />
         <TextField source="freeze_addr" label="Freeze Address" />
         <TextField source="clawback_addr" label="Clawback Address" /> */}
           <ShowLink label="VIEW" sortable={false} />
